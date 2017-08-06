@@ -1,0 +1,8 @@
+testSets {
+    integrationTest { dirName = 'integration-test' }
+}
+check.dependsOn integrationTest
+integrationTest.mustRunAfter test
+tasks.withType(Test) {
+    reports.html.destination = file("$reporting.baseDir/$name")
+}
