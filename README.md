@@ -9,6 +9,7 @@ This is the Server Side code for the Commodities-2017 project.
 ## Testing
 - Spock
 - Groovy
+- Jacoco
 
 ## Deployment Pipeline
 - Docker
