@@ -63,12 +63,14 @@ dependencies {
 
 
 task buildDocker(type: Docker, dependsOn: build) {
+    description "Create a Docker image.  The version is based on the contents of the Dockerfile for now"
     applicationName = 'igcommodities'
     dockerfile = file('Dockerfile')
     doFirst {
         copy {
             from jar
             into "${stageDir}/target"
+            rename "(.*).jar", "app.jar"
         }
     }
 }
