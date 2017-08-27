@@ -15,17 +15,12 @@ public class Contract {
     @GeneratedValue
     private long id;
 
-    private String commodityId;
     private String contractSort;
     private String contractMonth;
     private Integer price;
     private Boolean inactive;
 
-    private Commodity commodity;
-
     @ManyToOne
-    @JoinColumn(name = "somename")
-    public Commodity getCommodity() {
-        return commodity;
-    }
+    @JoinColumn(name = "commodity_id")
+    private Commodity commodity;
 }

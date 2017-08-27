@@ -6,7 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -23,7 +23,7 @@ public class Commodity {
     private Integer unitSize;
     private String  unitPrice;
     private Double  tickSize;
-    private Double  tickePrice;
+    private Double  ticketPrice;
     private Integer tickDailyLimit;
     private Integer contractStandardPrice;
     private Integer displayDecimals;
@@ -34,11 +34,8 @@ public class Commodity {
     private String  databaseSymbol;
     private Boolean inactive = false;
 
-//    @Getter(onMethod = @__({@OneToMany(mappedBy = "commodity", cascade = CascadeType.ALL)}))
-    private HashSet<Contract> contracts;
-
     @OneToMany(mappedBy = "commodity", cascade = CascadeType.ALL)
-    public HashSet<Contract> getContracts() {
-        return contracts;
-    }
+    private Set<Contract> contracts;
+
 }
+
